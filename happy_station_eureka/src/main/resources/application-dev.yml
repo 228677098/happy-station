@@ -1,0 +1,15 @@
+server:
+  port: 8762
+
+spring:
+  application:
+    name: happy_station_eureka
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    fetch-registry: false  #允许拉取注册信息
+    register-with-eureka: false  #允许注册到别的eureka上
+
+

@@ -1,0 +1,10 @@
+server:
+  port: 6379
+
+spring:
+  application:
+    name: CACHE
+
+  redis:
+    port: 6379
+    host: 10.0.131.157

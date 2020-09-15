@@ -1,0 +1,32 @@
+server:
+  port: 8201
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8762/eureka
+spring:
+  application:
+    name: happy_station_zuul
+
+#zuul忽略服务的一些配置
+zuul:
+  #基于服务名忽略服务,如果要忽略全部服务，配置"*",则默认全部服务配置的路径都会被忽略（无法忽略自定义配置）
+  ignored-services: "*"
+  #基于路径忽略服务，虽然可以通过监控界面查看，但访问会报404
+  #ignored-patterns: /**/happy_station_common/**
+  routes:
+    #指定自定义服务的方式一
+    #happy_station_common: common/**
+    #指定自定义服务的方式二（可以配置更多的属性）
+    haha:  #自定义名称
+      serviceId: happy_station_common
+      path: /common/**
+
+
+#查看zuul的监控界面 ，开发时配置为*，上线时不要配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
