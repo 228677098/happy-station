@@ -38,6 +38,7 @@ public class CacheController {
     @PostMapping("/set")
     public String set(@RequestParam String key,@RequestParam String value){
         log.info("【cache模块set执行了 key={},value={}】", key,value);
+        System.out.println("aaa");
         cacheService.set(key,value);
         return null;
     }
